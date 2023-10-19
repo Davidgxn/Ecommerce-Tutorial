@@ -2,6 +2,7 @@
 
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
+// Interfaz de la clase ModalProps
 interface ModalProps {
     title: string;
     description: string;
@@ -10,6 +11,7 @@ interface ModalProps {
     children?: React.ReactNode;
 };
 
+// Plantilla de Modal para usar cada vez que se necesite.
 export const Modal: React.FC<ModalProps> = ({
     title,
     description,

@@ -16,13 +16,17 @@ import { Form,
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
+// Se utiliza la libreria zod que proporciona herramientas para la validacion de esquemas en TypeScript. Y lo que hace en este caso es comprobar que por lo menos tenga 1 de longitud el string
 const formSchema = z.object({
     name: z.string().min(1),
 });
 
+
 export const StoreModal = () => {
+    // Importa el componente del objeto useStoreModal.
     const storeModal = useStoreModal();
 
+    // Configura un formulario utilizando el hook useForm y se usa para validar
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -30,11 +34,13 @@ export const StoreModal = () => {
         },
     });
 
+    // Define una funcion de manejador para el evento onSubmit del formulario
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         console.log(values);
         // TODO: Create Store
     }
 
+    // Devuelve el componente Modal con un formulario para crear la tienda.
     return (
         <Modal
             title="Create store"
